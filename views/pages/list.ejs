@@ -1,0 +1,38 @@
+<%- include('../partials/header.ejs'); %> 
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <h3 class="h3">List of Users</h3>
+            </div>
+        </div>
+        <table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Options</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            <% if(student.length !== 0) { student.forEach((element) => { %>
+                <tr>
+                    <th><%= element.id %></th>
+                    <td><%= element.name %></td>
+                    <td><%= element.email %></td>
+                    <td>
+                        <a href="/view/<%=element.id%>"><button class="btn btn-dark" type="button"> View</button></a>
+                        <a href="/update/<%=element.id%>"><button class="btn btn-secondary" type="button">Update</button></a>
+                        <a href="/delete/<%=element.id%>"><button class="btn btn-danger" type="button"> Delete</button></a>
+                    </td>
+                </tr>
+            <% })} else { %>
+                <tr>
+                    <td colspan="4" class="text-center">No record found</td>
+                </tr>
+            <% } %>
+            </tbody>
+        </table>
+    </div>
+<%- include('../partials/footer.ejs'); %>    

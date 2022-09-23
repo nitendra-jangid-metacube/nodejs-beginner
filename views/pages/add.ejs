@@ -1,0 +1,36 @@
+<%- include('../partials/header.ejs'); %> 
+    <div class="container">
+
+      <div class="row text-center">
+          <div class="col">
+              <h3 class="h3">Add User</h3>
+          </div>
+      </div>
+
+      <% if(typeof alert != "undefined") { alert.forEach((error) => { %>
+        <div class="alert alert-danger" role="alert">
+          <%- error.msg %>
+        </div>
+      <% }) } %>
+
+        <form action="/add" method="post">
+            <div class="mb-3">
+              <label for="exampleInputName1" class="form-label">Name</label>
+              <input type="text" name="name" value="<% (typeof name!='undefined')?name:'' %>" class="form-control" id="exampleInputName1" aria-describedby="nameHelp">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" name="email" value="<% (typeof email!='undefined')?email:'' %>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>  
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" name="password" value="<% (typeof password!='undefined')?password:'' %>" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword2" class="form-label">Confirm Password</label>
+              <input type="password" name="confirmPassword" value="<% (typeof confirmPassword!='undefined')?confirmPassword:'' %>" class="form-control" id="exampleInputPassword2">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+<%- include('../partials/footer.ejs'); %>    

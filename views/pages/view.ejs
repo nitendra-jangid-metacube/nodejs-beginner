@@ -1,0 +1,32 @@
+<%- include('../partials/header.ejs'); %> 
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <h3 class="h3">View of User</h3>
+            </div>
+        </div>
+        <table class="table table-success table-striped">
+            <tbody>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th><%= student.id %></th>
+                </tr>
+                <tr>
+                    <th scope="col">Name</th>
+                    <td><%= student.name %></td>
+                </tr>
+                <tr>
+                    <th scope="col">Email</th>
+                    <td><%= student.email %></td>
+                </tr>
+                <tr>
+                    <th scope="col">Options</th>
+                    <td>
+                        <a href="/update/<%=student.id%>"><button class="btn btn-secondary" type="button">Update</button></a>
+                        <a href="/delete/<%=student.id%>"><button class="btn btn-danger" type="button"> Delete</button></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<%- include('../partials/footer.ejs'); %>    
